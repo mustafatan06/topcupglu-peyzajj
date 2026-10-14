@@ -25,6 +25,7 @@
             text-align: center;
             padding: 20px;
             overflow-x: hidden;
+            position: relative;
         }
 
         .container {
@@ -35,6 +36,7 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
+            z-index: 1; /* Arka plan öğeleri önde */
         }
 
         /* --- YANIP SÖNEN BÜYÜK BAŞLIK --- */
@@ -88,7 +90,7 @@
             align-items: center;
         }
 
-        /* Büyüleyici Dönen Peyzaj Çarkı */
+        /* Dönen Peyzaj Çarkı */
         .landscape-mandala {
             width: 160px;
             height: 160px;
@@ -101,7 +103,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Yaprak / Taç Yaprak Halkaları */
+        /* Yaprak Halkaları */
         .petal {
             position: absolute;
             top: 50%;
@@ -115,7 +117,6 @@
             box-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
         }
 
-        /* 8 Yönlü Simetrik Yerleşim */
         .petal:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
         .petal:nth-child(2) { transform: translate(-50%, -100%) rotate(45deg); background: linear-gradient(to top, #15803d, #86efac); }
         .petal:nth-child(3) { transform: translate(-50%, -100%) rotate(90deg); }
@@ -145,7 +146,7 @@
             50% { transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 0 35px #4ade80; }
         }
 
-        /* Çevrede Dönen Su / Enerji Halkası */
+        /* Çevrede Dönen Enerji Halkası */
         .orbit-ring {
             position: absolute;
             top: 50%;
@@ -175,57 +176,60 @@
             font-size: 13px;
             color: #facc15;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             letter-spacing: 0.5px;
         }
 
-        /* --- TAN MEDYA TASARIM İMZA & İLETİŞİM KUTUSU --- */
-        .agency-box {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            padding: 18px 25px;
-            border-radius: 14px;
-            width: 100%;
-            max-width: 620px;
-            margin-top: 5px;
+        /* --- YENİ: ORTADAKİ FARUK BEY İLETİŞİM EKRANI --- */
+        .contact-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid rgba(74, 222, 128, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            padding: 30px 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            z-index: 10; /* En üstte */
+            animation: fadeInScale 0.5s ease-out;
         }
 
-        .agency-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #f8fafc;
-            margin-bottom: 4px;
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         }
 
-        .agency-title span {
-            color: #38bdf8;
+        .contact-title {
+            font-size: 18px;
+            color: #e2e8f0;
+            margin-bottom: 6px;
         }
 
-        .person-name {
-            font-size: 17px;
+        .contact-name {
+            font-size: 24px;
             color: #4ade80;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 20px;
             letter-spacing: 0.5px;
         }
 
-        .contact-buttons {
+        .overlay-buttons {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 10px;
         }
 
-        /* Animasyonlu Şık İletişim Butonları */
-        .btn-contact {
+        .btn-overlay {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 14px;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 25px;
+            border-radius: 50px;
+            font-size: 16px;
             font-weight: 600;
             text-decoration: none;
             color: #ffffff;
@@ -240,36 +244,65 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
         }
 
-        .btn-call {
+        .btn-overlay:hover {
+            transform: translateY(-3px) scale(1.05);
+            filter: brightness(1.15);
+        }
+
+        .btn-call-ov {
             background: linear-gradient(135deg, #0284c7, #0369a1);
             border: 1px solid rgba(56, 189, 248, 0.4);
         }
 
-        .btn-whatsapp {
+        .btn-whatsapp-ov {
             background: linear-gradient(135deg, #16a34a, #15803d);
             border: 1px solid rgba(74, 222, 128, 0.4);
-            animation-delay: 1.25s; /* İki buton ardışık parlasın diye gecikme */
+            animation-delay: 1.25s;
         }
 
-        .btn-contact:hover {
-            transform: translateY(-2px) scale(1.05);
-            filter: brightness(1.15);
+        /* --- ALTAKİ TAN MEDYA TASARIM BANTI --- */
+        .agency-box {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+            padding: 15px 25px;
+            border-radius: 14px 14px 0 0;
+            width: 100%;
+            max-width: 650px;
+            margin-top: 20px;
+            z-index: 1;
         }
 
-        .web-link {
-            display: block;
-            margin-top: 12px;
-            font-size: 13px;
-            color: #94a3b8;
+        .agency-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 4px;
         }
 
-        .web-link a {
+        .agency-title span {
+            color: #38bdf8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-top: 8px;
+        }
+
+        .contact-info a {
             color: #38bdf8;
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.2s;
         }
 
-        .web-link a:hover {
+        .contact-info a:hover {
+            color: #7dd3fc;
             text-decoration: underline;
         }
     </style>
@@ -301,26 +334,31 @@
 
         <p>Sizleri daha kusursuz ve yeşil bir dijital deneyimle buluşturabilmek adına altyapı güncellemeleri gerçekleştiriyoruz. Beklettiğimiz için özür dileriz, çok yakında yayındayız!</p>
         <div class="process-note">⚠️ Bu işlem biraz zaman alabilir, gösterdiğiniz sabır için teşekkür ederiz.</div>
+    </div>
 
-        <!-- TAN MEDYA TASARIM İMZA & İLETİŞİM KUTUSU -->
-        <div class="agency-box">
-            <div class="agency-title">Bu site <span>Tan Medya Tasarım</span> tarafından kurulmuştur ve yönetilmektedir.</div>
-            <div class="person-name">🌿 Faruk Bey - Topcuoğlu Peyzaj</div>
-            
-            <div class="contact-buttons">
-                <!-- Arama Butonu -->
-                <a href="tel:05373193766" class="btn-contact btn-call">
-                    📞 0537 319 37 66 (Hemen Ara)
-                </a>
-                <!-- WhatsApp Butonu -->
-                <a href="https://wa.me/905373193766?text=Merhaba,%20Topcuoglu%20Peyzaj%20bakim%20modu%20uzerinden%20ulasiyorum." target="_blank" class="btn-contact btn-whatsapp">
-                    💬 WhatsApp ile İletişim
-                </a>
-            </div>
+    <!-- YENİ: ORTADAKİ FARUK BEY İLETİŞİM EKRANI -->
+    <div class="contact-overlay">
+        <div class="contact-title">İletişim Bilgileri</div>
+        <div class="contact-name">🌿 Faruk Bey</div>
+        
+        <div class="overlay-buttons">
+            <!-- Arama Butonu -->
+            <a href="tel:05373193766" class="btn-overlay btn-call-ov">
+                📞 0537 319 37 66 (Hemen Ara)
+            </a>
+            <!-- WhatsApp Butonu -->
+            <a href="https://wa.me/905373193766?text=Merhaba,%20Topcuoglu%20Peyzaj%20bakim%20modu%20uzerinden%20ulasiyorum." target="_blank" class="btn-overlay btn-whatsapp-ov">
+                💬 WhatsApp ile İletişim
+            </a>
+        </div>
+    </div>
 
-            <div class="web-link">
-                🌐 <a href="https://www.tanmedyatasarim.com" target="_blank">www.tanmedyatasarim.com</a>
-            </div>
+    <!-- ALTAKİ TAN MEDYA TASARIM BANTI (Bozulmadı) -->
+    <div class="agency-box">
+        <div class="agency-title">Bu site <span>Tan Medya Tasarım</span> tarafından kurulmaktadır ve yönetilmektedir.</div>
+        <div class="contact-info">
+            <div>📞 <a href="tel:05010901722">0501 090 17 22</a></div>
+            <div>🌐 <a href="https://www.tanmedyatasarim.com" target="_blank">www.tanmedyatasarim.com</a></div>
         </div>
     </div>
 
