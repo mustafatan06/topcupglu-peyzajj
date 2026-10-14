@@ -37,7 +37,7 @@
             height: 100%;
             pointer-events: none;
             overflow: hidden;
-            z-index: 2; /* İçeriklerin üstünde ama tıklamayı engellemez */
+            z-index: 2;
         }
 
         .flower {
@@ -48,18 +48,11 @@
         }
 
         @keyframes fallFlower {
-            0% {
-                transform: translateY(-10vh) translateX(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(50vh) translateX(50px) rotate(180deg);
-            }
-            100% {
-                transform: translateY(110vh) translateX(-30px) rotate(360deg);
-            }
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); }
+            50% { transform: translateY(50vh) translateX(50px) rotate(180deg); }
+            100% { transform: translateY(110vh) translateX(-30px) rotate(360deg); }
         }
 
-        /* Çiçeklerin Boyut, Konum ve Hız Dağılımı */
         .flower:nth-child(1) { left: 5%; animation-duration: 8s; animation-delay: 0s; font-size: 24px; }
         .flower:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: 2s; font-size: 18px; }
         .flower:nth-child(3) { left: 25%; animation-duration: 9s; animation-delay: 1s; font-size: 28px; }
@@ -74,7 +67,7 @@
         .container {
             max-width: 850px;
             margin: auto;
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -84,10 +77,10 @@
 
         /* --- YANIP SÖNEN BÜYÜK BAŞLIK --- */
         .blink-title {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 0 0 25px rgba(74, 222, 128, 0.6);
@@ -100,10 +93,10 @@
         }
 
         .subtitle {
-            font-size: 19px;
+            font-size: 18px;
             color: #4ade80;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             letter-spacing: 1px;
         }
 
@@ -112,11 +105,11 @@
             background: rgba(74, 222, 128, 0.15);
             color: #4ade80;
             border: 1px solid rgba(74, 222, 128, 0.3);
-            padding: 5px 16px;
+            padding: 4px 14px;
             border-radius: 30px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -124,9 +117,9 @@
         /* --- MODERN PEYZAJ / MANDALA ANİMASYON SAHNESİ --- */
         .stage {
             width: 100%;
-            max-width: 320px;
-            height: 220px;
-            margin: 5px auto;
+            max-width: 260px;
+            height: 170px;
+            margin: 2px auto;
             position: relative;
             display: flex;
             justify-content: center;
@@ -135,8 +128,8 @@
 
         /* Dönen Peyzaj Çarkı */
         .landscape-mandala {
-            width: 160px;
-            height: 160px;
+            width: 130px;
+            height: 130px;
             position: relative;
             animation: rotateMandala 20s linear infinite;
         }
@@ -151,13 +144,13 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 45px;
-            height: 90px;
+            width: 38px;
+            height: 75px;
             background: linear-gradient(to top, #166534, #4ade80);
             border-radius: 50% 50% 20% 20%;
             transform-origin: bottom center;
             opacity: 0.85;
-            box-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
+            box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
         }
 
         .petal:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
@@ -175,18 +168,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: radial-gradient(circle, #facc15 0%, #ca8a04 100%);
             border-radius: 50%;
-            box-shadow: 0 0 25px #facc15;
+            box-shadow: 0 0 20px #facc15;
             animation: pulseCore 3s ease-in-out infinite;
             z-index: 5;
         }
 
         @keyframes pulseCore {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px #facc15; }
-            50% { transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 0 35px #4ade80; }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 15px #facc15; }
+            50% { transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 0 25px #4ade80; }
         }
 
         /* Çevrede Dönen Enerji Halkası */
@@ -195,8 +188,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border: 2px dashed rgba(74, 222, 128, 0.4);
             border-radius: 50%;
             animation: rotateRing 12s linear infinite reverse;
@@ -207,72 +200,38 @@
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        p {
-            font-size: 15px;
-            color: #94a3b8;
-            line-height: 1.5;
-            margin-bottom: 6px;
-            max-width: 580px;
-        }
-
-        .process-note {
-            font-size: 13px;
-            color: #facc15;
-            font-style: italic;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- ORTADAKİ FARUK BEY İLETİŞİM EKRANI --- */
-        .contact-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(15, 23, 42, 0.95);
-            border: 2px solid rgba(74, 222, 128, 0.4);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-            padding: 30px 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 400px;
-            z-index: 10;
-            animation: fadeInScale 0.5s ease-out;
-        }
-
-        @keyframes fadeInScale {
-            0% { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .contact-title {
-            font-size: 18px;
-            color: #e2e8f0;
-            margin-bottom: 6px;
+        /* --- ÇİÇEĞİN ALTINDAKİ ÇERÇEVESİZ FARUK BEY ALANI --- */
+        .contact-inline {
+            margin: 5px 0 10px 0;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
 
         .contact-name {
-            font-size: 24px;
+            font-size: 20px;
             color: #4ade80;
             font-weight: 700;
-            margin-bottom: 20px;
             letter-spacing: 0.5px;
         }
 
         .overlay-buttons {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn-overlay {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 25px;
-            border-radius: 50px;
-            font-size: 16px;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 14px;
             font-weight: 600;
             text-decoration: none;
             color: #ffffff;
@@ -288,7 +247,7 @@
         }
 
         .btn-overlay:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-2px) scale(1.05);
             filter: brightness(1.15);
         }
 
@@ -303,24 +262,40 @@
             animation-delay: 1.25s;
         }
 
+        p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            max-width: 550px;
+        }
+
+        .process-note {
+            font-size: 12px;
+            color: #facc15;
+            font-style: italic;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
         /* --- ALTAKİ TAN MEDYA TASARIM BANTI --- */
         .agency-box {
             background: rgba(15, 23, 42, 0.85);
             border: 1px solid rgba(56, 189, 248, 0.3);
             box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
-            padding: 15px 25px;
+            padding: 12px 20px;
             border-radius: 14px 14px 0 0;
             width: 100%;
             max-width: 650px;
-            margin-top: 20px;
+            margin-top: 10px;
             z-index: 3;
         }
 
         .agency-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #f8fafc;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .agency-title span {
@@ -332,9 +307,9 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            font-size: 14px;
+            font-size: 13px;
             color: #cbd5e1;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .contact-info a {
@@ -345,7 +320,6 @@
         }
 
         .contact-info a:hover {
-            color: #7dd3fc;
             text-decoration: underline;
         }
     </style>
@@ -389,25 +363,23 @@
             <div class="mandala-core"></div>
         </div>
 
+        <!-- ÇERÇEVESİZ FARUK BEY İLETİŞİM ALANI (ÇİÇEĞİN ALTI) -->
+        <div class="contact-inline">
+            <div class="contact-name">🌿 Faruk Bey</div>
+            <div class="overlay-buttons">
+                <!-- Arama Butonu -->
+                <a href="tel:05373193766" class="btn-overlay btn-call-ov">
+                    📞 0537 319 37 66 (Hemen Ara)
+                </a>
+                <!-- WhatsApp Butonu -->
+                <a href="https://wa.me/905373193766?text=Merhaba,%20Topcuoglu%20Peyzaj%20bakim%20modu%20uzerinden%20ulasiyorum." target="_blank" class="btn-overlay btn-whatsapp-ov">
+                    💬 WhatsApp ile İletişim
+                </a>
+            </div>
+        </div>
+
         <p>Sizleri daha kusursuz ve yeşil bir dijital deneyimle buluşturabilmek adına altyapı güncellemeleri gerçekleştiriyoruz. Beklettiğimiz için özür dileriz, çok yakında yayındayız!</p>
         <div class="process-note">⚠️ Bu işlem biraz zaman alabilir, gösterdiğiniz sabır için teşekkür ederiz.</div>
-    </div>
-
-    <!-- ORTADAKİ FARUK BEY İLETİŞİM EKRANI -->
-    <div class="contact-overlay">
-        <div class="contact-title">İletişim Bilgileri</div>
-        <div class="contact-name">🌿 Faruk Bey</div>
-        
-        <div class="overlay-buttons">
-            <!-- Arama Butonu -->
-            <a href="tel:05373193766" class="btn-overlay btn-call-ov">
-                📞 0537 319 37 66 (Hemen Ara)
-            </a>
-            <!-- WhatsApp Butonu -->
-            <a href="https://wa.me/905373193766?text=Merhaba,%20Topcuoglu%20Peyzaj%20bakim%20modu%20uzerinden%20ulasiyorum." target="_blank" class="btn-overlay btn-whatsapp-ov">
-                💬 WhatsApp ile İletişim
-            </a>
-        </div>
     </div>
 
     <!-- ALTAKİ TAN MEDYA TASARIM BANTI -->
